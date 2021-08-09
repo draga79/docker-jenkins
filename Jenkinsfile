@@ -12,6 +12,12 @@ pipeline {
         sh 'docker push dragas/jenkins'
       }
     }
+    
+    stage('Cleanup') {
+      steps {
+        sh 'yes | docker volume prune'
+      }
+    }   
 
   }
 }
